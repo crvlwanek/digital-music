@@ -7,11 +7,17 @@
 img {
     max-width: 100%;
 }
+body {
+    background-color: #f6f6f6;
+}
 
 /* Navbar Section */
 header.navbar {
     background-color: #f6f6f6;
     color: black;
+}
+.title {
+    padding-left: 2rem;
 }
 
 .logo {
@@ -22,11 +28,40 @@ header.navbar {
 
 /* Banner Section */
 .banner {
-    height: 200px;
+    height: 5rem;
+    position: relative;
 }
 .banner-img {
     object-fit: cover;
     height: 20rem;
     width: 100%;
     filter: brightness(0.60);
+}
+#banner-text {
+    margin: 1.5rem;
+}
+.center {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    color: white;
+    text-shadow: 5px 5px 10px black;
+}
+
+/* 2nd Section  */
+.itemRow {
+    padding-top: 300px;
+    text-align: center;
+}
+.icon {
+    transform: scale(4.0);
+}
+.icon-text {
+    margin-top: 50px;
+    margin-bottom: 60px;
+}
+.gridRow {
+    padding-bottom: 40px;
 }

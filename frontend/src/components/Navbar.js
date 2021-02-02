@@ -3,7 +3,7 @@ import {
   AppBar, Toolbar, IconButton, 
   List, ListItem, ListItemText,
   Link, makeStyles, Container,
-  Hidden,
+  Hidden, Grid,
   Typography
 } from "@material-ui/core"
 import { Home } from "@material-ui/icons";
@@ -39,8 +39,22 @@ function Navbar() {
           <Container className={classes.navDisplayFlex}>
             <IconButton edge="start" color="inherit" aria-label="home">
             <Link href="/" className={classes.linkText}>
-            {/* <Home fontSize="large" /> */}
+            <Grid container direction="row" alignItems="center">
+              <Grid item>
+                {/* <Home fontSize="large" /> */}
               <img className="logo" src="../../static/images/DigitalLogo.png"/>
+              </Grid>
+              <Hidden smDown>
+              <Grid item>
+                <Typography className="title">
+                  Intro to Digital Music Composition
+                </Typography>
+              </Grid>
+              </Hidden>
+              
+            </Grid>
+            
+            
             </Link>
             
             </IconButton>
