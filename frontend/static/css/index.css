@@ -18,6 +18,7 @@ header.navbar {
 }
 .title {
     padding-left: 2rem;
+    font-weight: 900;
 }
 
 .logo {
@@ -61,6 +62,8 @@ header.navbar {
 .icon-text {
     margin-top: 50px;
     margin-bottom: 60px;
+    color: grey;
+    font-size: 1.5rem;
 }
 .gridRow {
     padding-bottom: 40px;

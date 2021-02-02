@@ -9,7 +9,7 @@ function HomePage() {
     return (
         <div>
             <Banner />
-            <Container maxWidth="md">
+            <Container maxWidth="sm">
             <Grid className="itemRow" container spacing={1} direction="row" justify="center" alignItems="center">
                 <Grid className="gridRow" item xs={12} md={4}>
                     <Typography>
