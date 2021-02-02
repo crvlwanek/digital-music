@@ -64,7 +64,7 @@ function Navbar() {
                 {navLinks.map(({ title, path }) => (
                   <Link href={path} key={title} className={classes.linkText}>
                     <ListItem button>
-                      <ListItemText primary={title} />
+                      <ListItemText className="navbarLinkText" primary={title} />
                     </ListItem>
                   </Link>
                 ))}

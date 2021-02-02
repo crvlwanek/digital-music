@@ -9,15 +9,15 @@ function HomePage() {
     return (
         <div>
             <Banner />
-            <Container maxWidth="sm">
-            <Grid className="itemRow" container spacing={1} direction="row" justify="center" alignItems="center">
+            <Container maxWidth="md">
+            <Grid className="itemRow" container direction="row" justify="center" alignItems="center">
                 <Grid className="gridRow" item xs={12} md={4}>
                     <Typography>
                         <Grid container direction="column" justify="center" alignItems="center">
                             <RadioIcon color="primary" className="icon"/>
-                            <h1 className="icon-text">
-                            Listen to original compositions
-                            </h1>
+                            <h3 className="icon-text">
+                            Listen to original music
+                            </h3>
                             
                         </Grid>
                     </Typography>
@@ -26,9 +26,9 @@ function HomePage() {
                     <Typography>
                         <Grid container direction="column" justify="center" alignItems="center">
                             <MusicNote color="primary" className="icon"/>
-                            <h1 className="icon-text">
+                            <h3 className="icon-text">
                                 Create your own music
-                            </h1>
+                            </h3>
                         </Grid>
                     </Typography>
                 </Grid>
@@ -36,9 +36,9 @@ function HomePage() {
                     <Typography>
                         <Grid container direction="column" justify="center" alignItems="center">
                             <ShareIcon color="primary" className="icon"/>
-                            <h1 className="icon-text">
+                            <h3 className="icon-text">
                             Share it with your friends
-                            </h1>
+                            </h3>
                         </Grid>
                     </Typography>
                 </Grid>
