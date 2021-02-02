@@ -36,47 +36,37 @@ div.navbarLinkText span {
 }
 
 /* Banner Section */
-.banner {
-    height: 5rem;
-    position: relative;
-}
-.banner-img {
-    object-fit: cover;
-    height: 20rem;
-    width: 100%;
-    filter: brightness(0.60);
-}
-#banner-text {
-    margin: 1.5rem;
-}
-.center {
-    position: absolute;
-    top: 50%;
-    width: 100%;
+div.banner {
+    background-color: #75e8e6;
+    width: inherit;
+    padding: inherit;
+    margin: inherit;
     text-align: center;
-    font-size: 18px;
-    color: white;
-    text-shadow: 5px 5px 10px black;
+    align-items: center;
 }
-
+h1.banner-text {
+    color: white;
+    font-weight: 700;
+    text-shadow: 2px 2px 5px black;
+    transform: scale(0.7);
+}
 /* 2nd Section  */
 .itemRow {
-    padding-top: 330px;
     text-align: center;
+    height: 200px;
 }
 .icon {
-    transform: scale(4.0);
+    color:#75e8e6;
+    padding-bottom: 20px
 }
-.icon-text {
-    margin-top: 50px;
-    margin-bottom: 50px;
+h3.icon-text {
     color: grey;
     font-size: 1rem;
     font-weight: 300;
     letter-spacing: 0.5px;
 }
-.gridRow {
-    padding-bottom: 10px;
+gridRow {
+    height: 50px;
 }
 /* Footer section */
 footer {

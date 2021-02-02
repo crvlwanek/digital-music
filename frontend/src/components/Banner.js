@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, ThemeProvider } from '@material-ui/core';
+import { Typography, Box, ThemeProvider } from '@material-ui/core';
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 
 let theme = createMuiTheme();
@@ -7,14 +7,21 @@ theme = responsiveFontSizes(theme);
 
 function Banner() {
     return (
-        <div className="banner">
-            <img className="banner-img" src="../../static/images/tech-background.jpg"/>
-            <div className="center">
-                <ThemeProvider theme={theme}>
-                    <Typography id="banner-text" variant="h1">Intro to Digital Music Composition</Typography>
-                </ThemeProvider>
-            </div>
-        </div>
+        <Box 
+            className="banner"
+            display="flex"
+            height={200}
+            bgcolor="#75e8e6"
+            alignItems="center"
+            justifyContent="center">
+            <ThemeProvider theme={theme}>
+                <Typography 
+                    className="banner-text"
+                    variant="h1">
+                    Intro to Digital Music
+                </Typography>
+            </ThemeProvider>
+        </Box>
     )
 }
 
