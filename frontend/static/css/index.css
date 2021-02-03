@@ -71,13 +71,16 @@ div.itemRow div.gridRow {
 }
 /* Footer section */
 footer {
-    height: 100px;
     background-color: #cdd0cb;
     color: #495464;
     width: 100%;
+    padding: 50px 0 30px;
+}
+p.footer-text {
+    font-weight: 200;
+    font-size: small;
 }
 div.social-text {
-    height: inherit;
     width: 100%;
 }
 .social-item {
