@@ -38,6 +38,7 @@ div.navbarLinkText span {
 /* Banner Section */
 div.banner {
     background-color: #75e8e6;
+    background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
     width: inherit;
     padding: inherit;
     margin: inherit;
@@ -53,7 +54,7 @@ h1.banner-text {
 /* 2nd Section  */
 .itemRow {
     text-align: center;
-    height: 200px;
+    padding: 50px 20% 60px;
 }
 .icon {
     color:#75e8e6;
@@ -65,8 +66,8 @@ h3.icon-text {
     font-weight: 300;
     letter-spacing: 0.5px;
 }
-gridRow {
-    height: 50px;
+div.itemRow div.gridRow {
+    padding: 1rem 0 1rem;
 }
 /* Footer section */
 footer {

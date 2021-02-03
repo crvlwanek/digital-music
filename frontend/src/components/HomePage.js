@@ -10,8 +10,7 @@ function HomePage() {
     return (
         <React.Fragment>
             <Banner />
-            <Grid 
-            spacing={3}
+            <Grid
             className="itemRow" 
             container direction="row" 
             justify="center" 

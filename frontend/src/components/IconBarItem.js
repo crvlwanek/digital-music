@@ -1,5 +1,4 @@
 import React from "react";
-import RadioIcon from '@material-ui/icons/Radio';
 import { Grid, Typography, Box } from '@material-ui/core';
 
 function IconBarItem(props) {
