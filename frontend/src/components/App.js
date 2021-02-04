@@ -1,23 +1,52 @@
-import React from "react";
-import SongsPage from "./SongsPage";
-import PortfoliosPage from "./PortfoliosPage";
-import LoginPage from "./LoginPage";
-import RegisterPage from "./RegisterPage";
-import HomePage from "./HomePage";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React, { Component, Fragment } from 'react';
+import ReactDOM from 'react-dom';
+import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
-function App() {
+import { Provider as AlertProvider } from 'react-alert';
+import AlertTemplate from 'react-alert-template-basic';
+
+import Header from './layout/Header';
+import Dashboard from './leads/Dashboard';
+import Alerts from './layout/Alerts';
+import Login from './accounts/Login';
+import Register from './accounts/Register';
+import PrivateRoute from './common/PrivateRoute';
+import HomePage from './layout/HomePage';
+
+import { Provider } from 'react-redux';
+import store from '../store';
+import { loadUser } from '../actions/auth';
+
+// Alert Options
+const alertOptions = {
+  timeout: 3000,
+  position: 'top center',
+};
+
+class App extends Component {
+  componentDidMount() {
+    store.dispatch(loadUser());
+  }
+
+  render() {
     return (
-        <Router>
-            <Switch>
-                <Route exact path='/' component={HomePage} />
-                <Route path='/login' component={LoginPage} />
-                <Route path='/register' component={RegisterPage} />
-                <Route path='/songs' component={SongsPage} />
-                <Route path='/portfolios' component={PortfoliosPage} />
-            </Switch>
-        </Router>
-    )
+      <Provider store={store}>
+        <AlertProvider template={AlertTemplate} {...alertOptions}>
+          <Router>
+            <Fragment>
+              <Header />
+              <Alerts />
+                <Switch>
+                  <Route exact path="/" component={HomePage} />
+                  <Route exact path="/register" component={Register} />
+                  <Route exact path="/login" component={Login} />
+                </Switch>
+            </Fragment>
+          </Router>
+        </AlertProvider>
+      </Provider>
+    );
+  }
 }
 
-export default App
+ReactDOM.render(<App />, document.getElementById('app'));

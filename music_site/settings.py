@@ -38,9 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # ----------------------------
-    'api.apps.ApiConfig',
-    'frontend.apps.FrontendConfig',
-    'accounts.apps.AccountsConfig',
+    'api',
+    'frontend',
+    'accounts',
+    'leads',
     'rest_framework',
     'knox',
 ]
