@@ -1,16 +1,22 @@
 import React from "react";
-import { Grid, IconButton, Link } from '@material-ui/core';
+import { IconButton, Link, makeStyles } from '@material-ui/core';
+
+const useStyles = makeStyles({
+    socialItem: {
+        color: "grey",
+    }
+})
 
 function SocialIcon(props) {
+    const classes = useStyles();
     const Icon = props.icon;
+
     return (
-        <Grid justify="center" alignItems="center" item className="social-item">
             <IconButton aria-label="home">
                 <Link href={props.link}>
-                    <Icon />
+                    <Icon className={classes.socialItem} />
                 </Link>
             </IconButton>
-        </Grid>
     )
 }
 

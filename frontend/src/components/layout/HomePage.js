@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Grid, Card, Container, Typography } from '@material-ui/core';
+import { Box, Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import MusicNote from '@material-ui/icons/MusicNote';
 import RadioIcon from '@material-ui/icons/Radio';
@@ -32,16 +32,6 @@ const useStyles = makeStyles({
         padding: "30px 50px 30px",
         width: "100%",
         margin: "0"
-    },
-    card: {
-        height: "100px",
-        backgroundColor: "white",
-        alignItems: "center",
-        justify: "center",
-        display: "flex",
-    },
-    icon: {
-        color: "#75e8e6"
     }
 })
 
@@ -59,58 +49,19 @@ export default function HomePage() {
                 alignItems="center"
                 spacing={4} 
                 direction="row"
-                className={classes.cardHolder}>
-                <Grid item xs={12} md={3}>
-                    <Card className={classes.card}>
-                        <Grid 
-                        container
-                        spacing={4}
-                        alignItems="center"
-                        justify="center"
-                        direction="row">
-                        <Grid item>
-                        <RadioIcon className={classes.icon} />
-                        </Grid>
-                        <Grid item>
-                        <Typography>
-                            Listen to original music
-                        </Typography>
-                        </Grid>
-                        </Grid>
-                    </Card>
-                </Grid>
-                <Grid item xs={12} md={3}>
-                    <Card className={classes.card}>
-                        <Grid 
-                        container
-                        alignItems="center"
-                        justify="center"
-                        direction="row">
-                        <MusicNote className={classes.icon} />
-                        <Typography>
-                            Make your own music
-                        </Typography>
-                        </Grid>
-                    </Card>
-                </Grid>
-                <Grid item xs={12} md={3}>
-                    <Card className={classes.card}>
-                        <Grid 
-                        container
-                        alignItems="center"
-                        justify="center"
-                        direction="row">
-                        <ShareIcon className={classes.icon} />
-                        <Typography>
-                            Share it with your friends
-                        </Typography>
-                        </Grid>
-                    </Card>
-                </Grid>
-
+                className={classes.cardHolder} 
+            >
+                <IconBarItem
+                    text="Listen to original music"
+                    icon={RadioIcon} />
+                <IconBarItem
+                    text="Make your own music"
+                    icon={MusicNote} />
+                <IconBarItem
+                    text="Share it with your friends"
+                    icon={ShareIcon} />
             </Grid>
         </React.Fragment>
-        
     )
 }
 

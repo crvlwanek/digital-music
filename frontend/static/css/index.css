@@ -70,23 +70,7 @@ div.itemRow div.gridRow {
     padding: 1rem 0 1rem;
 }
 /* Footer section */
-footer {
-    background-color: #cdd0cb;
-    color: #495464;
-    width: 100%;
-    padding: 50px 0 30px;
-}
-p.footer-text {
-    font-weight: 200;
-    font-size: small;
-}
-div.social-text {
-    width: 100%;
-}
-.social-item {
-    color: inherit;
-    align-items: center;
-}
+
 a.MuiTypography-colorPrimary {
     color: grey;
 }
