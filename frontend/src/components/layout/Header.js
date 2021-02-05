@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
 import { Link as RouterLink } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
 
 import { 
   Button, Link, Box, Typography,
@@ -18,6 +19,10 @@ const classes = {
     textDecoration: `none`,
     textTransform: `uppercase`,
     color: 'black'
+  },
+  logo: {
+    width: '2rem',
+    height: '2rem',
   }
 };
 
@@ -72,9 +77,10 @@ export class Header extends Component {
             <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <a className="navbar-brand" href="/">
-              Intro to Digital Music
-            </a>
+            <Button component={RouterLink} to="/">
+                {/* <img className={classes.logo} src="../../../static/images/DigitalLogo.png"/> */}
+                Intro to Digital Music
+            </Button>
           </div>
           {isAuthenticated ? authLinks : guestLinks}
         </div>

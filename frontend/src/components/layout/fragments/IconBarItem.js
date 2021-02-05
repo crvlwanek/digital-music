@@ -4,14 +4,15 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
     card: {
-        height: "100px",
+        height: "200px",
         backgroundColor: "white",
         alignItems: "center",
         justify: "center",
         display: "flex",
     },
     icon: {
-        color: "#75e8e6"
+        color: "#75e8e6",
+        fontSize: "4rem"
     }
 })
 
@@ -24,14 +25,14 @@ function IconBarItem(props) {
             <Card className={classes.card}>
                 <Grid 
                     container
-                    spacing={4}
+                    spacing={2}
                     alignItems="center"
                     justify="center"
-                    direction="row">
-                    <Grid item>
+                    direction="column">
+                    <Grid item xs={12}>
                         <Icon className={classes.icon} />
                     </Grid>
-                    <Grid item>
+                    <Grid item xs={12}>
                         <Typography>
                             {props.text}
                         </Typography>
