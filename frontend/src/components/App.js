@@ -16,6 +16,7 @@ import Footer from './layout/Footer'
 import { Provider } from 'react-redux';
 import store from '../store';
 import { loadUser } from '../actions/auth';
+import Dashboard from './songs/Dashboard';
 
 // Alert Options
 const alertOptions = {
@@ -38,6 +39,7 @@ class App extends Component {
               <Alerts />
                 <Switch>
                   <Route exact path="/" component={HomePage} />
+                  <PrivateRoute exact path="/songs" component={Dashboard} />
                   <Route exact path="/register" component={Register} />
                   <Route exact path="/login" component={Login} />
                 </Switch>

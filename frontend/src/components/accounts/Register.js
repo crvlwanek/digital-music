@@ -125,7 +125,7 @@ export class Register extends Component {
                     variant="outlined"
                     required
                     fullWidth
-                    name="password"
+                    name="password2"
                     label="Confirm Password"
                     type="password"
                     id="password2"

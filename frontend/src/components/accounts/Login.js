@@ -6,7 +6,7 @@ import { login } from '../../actions/auth';
 
 import {
   Typography, Avatar, 
-  TextField, Grid, CssBaseline,
+  TextField, Grid,
   Container, Button
 
 } from "@material-ui/core";
