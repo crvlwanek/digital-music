@@ -5,12 +5,10 @@ from .serializers import SongSerializer
 
 class SongViewSet(viewsets.ModelViewSet):
     permission_classes = [
-        permissions.IsAuthenticated
+        permissions.IsAuthenticatedOrReadOnly
     ]
     serializer_class = SongSerializer
-
-    def get_queryset(self):
-        return self.request.user.songs.all()
+    queryset = Song.objects.all()
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)

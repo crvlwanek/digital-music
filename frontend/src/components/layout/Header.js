@@ -6,19 +6,16 @@ import { Link as RouterLink } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 
 import { 
-  Button, Link, Box, Typography,
-  List, ListItem, ListItemText 
+  Button, Grid, Box, Typography,
+  AppBar, Toolbar
 } from '@material-ui/core';
 
 const classes = {
-  navDisplayFlex: {
-    display: `flex`,
-    justifyContent: `space-between`
-  },
   linkText: {
     textDecoration: `none`,
     textTransform: `uppercase`,
-    color: 'black'
+    color: 'black',
+    display: 'flex'
   },
   logo: {
     width: '2rem',
@@ -36,19 +33,22 @@ export class Header extends Component {
     const { isAuthenticated, user } = this.props.auth;
 
     const authLinks = (
-      <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
-        <Typography>
-        {user ? `Welcome ${user.username}` : ''}
-        </Typography>
-        <li className="nav-item">
+      <React.Fragment>
+        <Grid item>
+          <Typography whiteSpace="nowrap">
+            {user ? `Welcome ${user.username}` : ''}
+          </Typography>
+        </Grid>
+        <Grid item>
           <Button 
             onClick={this.props.logout}
             variant="contained"
-            color="secondary">
-              Logout
+            color="secondary"
+          >
+            Logout
           </Button>
-        </li>
-      </ul>
+        </Grid>
+      </React.Fragment>
     );
 
     const guestLinks = (
@@ -63,28 +63,26 @@ export class Header extends Component {
     );
 
     return (
-      <nav className="navbar navbar-expand-sm navbar-light bg-light">
-        <div className="container">
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarTogglerDemo01"
-            aria-controls="navbarTogglerDemo01"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
+      <AppBar color="#e8eae6" position="static"> 
+        <Toolbar>
+        <Box width="300px">
+          <Button fullWidth="true" className={classes.linkText} component={RouterLink} to="/">
+              {/* <img className={classes.logo} src="../../../static/images/DigitalLogo.png"/> */}
+              Intro to Digital Music
+          </Button>
+        </Box>
+          
+          <Grid
+            container
+            direction="row"
+            justify="flex-end"
+            alignItems="center"
+            spacing={4}
           >
-            <span className="navbar-toggler-icon" />
-          </button>
-          <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <Button component={RouterLink} to="/">
-                {/* <img className={classes.logo} src="../../../static/images/DigitalLogo.png"/> */}
-                Intro to Digital Music
-            </Button>
-          </div>
-          {isAuthenticated ? authLinks : guestLinks}
-        </div>
-      </nav>
+            {isAuthenticated ? authLinks : guestLinks}
+          </Grid>
+        </Toolbar>
+      </AppBar>
     );
   }
 }

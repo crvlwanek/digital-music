@@ -56,9 +56,9 @@ export class Form extends Component {
           </div>
           <div className="form-group">
             <label>Image</label>
-            <textarea
+            <input
               className="form-control"
-              type="text"
+              type="url"
               name="image"
               onChange={this.onChange}
               value={image}

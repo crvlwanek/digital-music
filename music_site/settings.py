@@ -25,7 +25,7 @@ SECRET_KEY = '(aq^@ds#3fb+%=17)s5as)ot-a4f2um9)zd4q^)mjr=-edwm2x'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'portfolios',
     'frontend',
     'accounts',
-    'leads',
     'rest_framework',
     'knox',
 ]
