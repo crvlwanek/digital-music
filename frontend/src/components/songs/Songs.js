@@ -23,8 +23,8 @@ export class Songs extends Component {
             <tr>
               <th>ID</th>
               <th>Name</th>
-              <th>Email</th>
-              <th>Message</th>
+              <th>Url</th>
+              <th>Image</th>
               <th />
             </tr>
           </thead>

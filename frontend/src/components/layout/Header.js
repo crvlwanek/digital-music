@@ -4,22 +4,16 @@ import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
 import { Link as RouterLink } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
+import HomeIcon from '@material-ui/icons/Home';
 
 import { 
   Button, Grid, Box, Typography,
-  AppBar, Toolbar
+  AppBar, Toolbar, IconButton
 } from '@material-ui/core';
 
 const classes = {
-  linkText: {
-    textDecoration: `none`,
-    textTransform: `uppercase`,
-    color: 'black',
-    display: 'flex'
-  },
-  logo: {
-    width: '2rem',
-    height: '2rem',
+  links: {
+    paddingRight: "20px"
   }
 };
 
@@ -65,12 +59,18 @@ export class Header extends Component {
     return (
       <AppBar color="#e8eae6" position="static"> 
         <Toolbar>
-        <Box width="300px">
-          <Button fullWidth="true" className={classes.linkText} component={RouterLink} to="/">
+        <Box display={{ xs: 'none', md: 'inline' }} width="300px">
+          <Button fullWidth="true" component={RouterLink} to="/">
               {/* <img className={classes.logo} src="../../../static/images/DigitalLogo.png"/> */}
               Intro to Digital Music
           </Button>
         </Box>
+        <Box display={{ xs: 'inline', md: 'none' }}>
+          <IconButton display={{ md: 'hidden' }} component={RouterLink} to="/">
+            <HomeIcon />
+          </IconButton>
+        </Box>
+        
           
           <Grid
             container
@@ -78,6 +78,7 @@ export class Header extends Component {
             justify="flex-end"
             alignItems="center"
             spacing={4}
+            paddingRight="20px"
           >
             {isAuthenticated ? authLinks : guestLinks}
           </Grid>
