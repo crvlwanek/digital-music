@@ -13,3 +13,12 @@ class SongViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
+class PortfolioViewSet(viewsets.ModelViewSet):
+    permission_classes = [
+        permissions.IsAuthenticatedOrReadOnly
+    ]
+    serializer_class = SongSerializer
+    
+    def get_queryset(self):
+        return self.request.user.songs.all()
+    

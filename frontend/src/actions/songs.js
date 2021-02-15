@@ -2,7 +2,7 @@ import axios from 'axios';
 import { createMessage, returnErrors } from './messages';
 import { tokenConfig } from './auth';
 
-import { GET_SONGS, DELETE_SONG, ADD_SONG } from './types';
+import { GET_SONGS, DELETE_SONG, ADD_SONG, GET_PORTFOLIO } from './types';
 
 // GET SONGS
 export const getSongs = () => (dispatch, getState) => {
@@ -11,6 +11,19 @@ export const getSongs = () => (dispatch, getState) => {
     .then((res) => {
       dispatch({
         type: GET_SONGS,
+        payload: res.data,
+      });
+    })
+    .catch((err) => dispatch(returnErrors(err.response.data, err.response.status)));
+};
+
+// GET PORTFOLIO
+export const getPortfolio = () => (dispatch, getState) => {
+  axios
+    .get('/api/portfolio/', tokenConfig(getState))
+    .then((res) => {
+      dispatch({
+        type: GET_PORTFOLIO,
         payload: res.data,
       });
     })

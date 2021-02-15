@@ -17,7 +17,7 @@ import { Provider } from 'react-redux';
 import store from '../store';
 import { loadUser } from '../actions/auth';
 import Dashboard from './songs/Dashboard';
-import Portfolio from './songs/Portfolio';
+import Songs from './songs/Songs';
 
 // Alert Options
 const alertOptions = {
@@ -40,7 +40,7 @@ class App extends Component {
               <Alerts />
                 <Switch>
                   <Route exact path="/" component={HomePage} />
-                  <Route exact path="/songs" component={Portfolio} />
+                  <Route exact path="/songs" component={Songs} />
                   <PrivateRoute exact path="/portfolio" component={Dashboard} />
                   <Route exact path="/register" component={Register} />
                   <Route exact path="/login" component={Login} />
