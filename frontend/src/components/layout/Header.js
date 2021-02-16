@@ -7,6 +7,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import AccountBubble from './fragments/AccountBubble';
 
 import MusicNoteIcon from '@material-ui/icons/MusicNote';
+import LibraryMusicIcon from '@material-ui/icons/LibraryMusic';
 
 import { 
   Button, Grid, Box, Typography,
@@ -17,6 +18,7 @@ import {
 const styles = {
   links: {
     margin: "0",
+    paddingRight: "20px",
   },
   item: {
     padding: "0",
@@ -35,18 +37,6 @@ export class Header extends Component {
 
   render() {
     const { isAuthenticated, user } = this.props.auth;
-    this.anchorEl = null;
-    this.open = Boolean(this.anchorEl);
-    const setAnchorEl = value => {
-      this.anchorEl = value
-    }
-    const handleMenu = e => {
-      setAnchorEl(e.currentTarget);
-      this.open = Boolean(this.anchorEl);
-    }
-    const handleClose = () => {
-      setAnchorEl(null);
-    }
 
     const authLinks = (
       <React.Fragment>
@@ -56,7 +46,7 @@ export class Header extends Component {
           </Typography>
         </Grid> */}
         <Grid item style={styles.item}>
-          <AccountBubble 
+          <AccountBubble
             auth={isAuthenticated}
             logout={this.props.logout} />
         </Grid>
@@ -93,6 +83,11 @@ export class Header extends Component {
             spacing={4}
             style={styles.links}
           >
+          <Grid item style={styles.item} >
+            <IconButton component={RouterLink} to="/users">
+              <LibraryMusicIcon style={styles.icon} />
+            </IconButton>
+          </Grid>
           <Grid item style={styles.item} >
             <IconButton component={RouterLink} to="/songs">
               <MusicNoteIcon style={styles.icon} />

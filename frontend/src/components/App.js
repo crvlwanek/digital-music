@@ -9,6 +9,8 @@ import Header from './layout/Header';
 import Alerts from './layout/Alerts';
 import Login from './accounts/Login';
 import Register from './accounts/Register';
+import Users from './accounts/Users';
+import UserProfile from './accounts/UserProfile';
 import PrivateRoute from './common/PrivateRoute';
 import HomePage from './layout/HomePage';
 import Footer from './layout/Footer'
@@ -44,6 +46,8 @@ class App extends Component {
                   <PrivateRoute exact path="/portfolio" component={Dashboard} />
                   <Route exact path="/register" component={Register} />
                   <Route exact path="/login" component={Login} />
+                  <Route exact path="/users" component={Users} />
+                  <Route exact path="/users/:username" component={UserProfile} />
                 </Switch>
               <Footer />
             </Fragment>

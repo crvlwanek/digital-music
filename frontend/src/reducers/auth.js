@@ -7,6 +7,8 @@ import {
     LOGOUT_SUCCESS,
     REGISTER_SUCCESS,
     REGISTER_FAIL,
+    GET_USER_PROFILE,
+    GET_USERS,
   } from '../actions/types';
   
   const initialState = {
@@ -14,10 +16,16 @@ import {
     isAuthenticated: null,
     isLoading: false,
     user: null,
+    users: [],
   };
   
   export default function (state = initialState, action) {
     switch (action.type) {
+      case GET_USERS:
+        return {
+          ...state,
+          users: action.payload
+        };
       case USER_LOADING:
         return {
           ...state,

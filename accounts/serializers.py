@@ -1,12 +1,15 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
+from portfolios.serializers import SongSerializer
 
 # User Serializer
 class UserSerializer(serializers.ModelSerializer):
+  songs = SongSerializer(many=True)
+
   class Meta:
     model = User
-    fields = ('id', 'username', 'email')
+    fields = ('id', 'username', 'email', 'songs')
 
 # Register Serializer
 class RegisterSerializer(serializers.ModelSerializer):

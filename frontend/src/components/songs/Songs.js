@@ -1,9 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
+import { Link as RouterLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { getSongs } from '../../actions/songs';
 
-import { Grid, Container, Typography, Box } from '@material-ui/core';
+import { Grid, Container, Typography, Box, Link } from '@material-ui/core';
 import AudioPlayer from 'material-ui-audio-player';
 import MissingImage from '../layout/fragments/MissingImage';
 import SongTile from '../layout/fragments/SongTile';
@@ -51,14 +52,19 @@ export class Songs extends Component {
             justify="center"
             spacing={5}
           >
-            {this.props.songs.map((song) => (
+            {this.props.songs.map(song => (
               <Grid item container xs={12} sm={7} md={4}
                 direction="column"
                 alignItems="center"
                 justify="center">
                 {song.image ? <SongTile image={song.image} /> : <MissingImage />}
                 <AudioPlayer src={"http://docs.google.com/uc?export=open&id=" + song.url.split("/")[5]} />
-                <Typography style={styles.songTitle}>"{song.name}" by {song.owner.username}</Typography>
+                <Typography style={styles.songTitle}>
+                  {`"${song.name}" by `}
+                  <Link component={RouterLink} to={`/users/${song.owner.username}`}>
+                  {song.owner.username}
+                  </Link>
+                </Typography>
               </Grid>            
             ))}
           </Grid>
@@ -68,7 +74,7 @@ export class Songs extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   songs: state.songs.songs,
 });
 

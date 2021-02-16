@@ -1,7 +1,11 @@
-from rest_framework import generics, permissions
+from django.contrib.auth.models import User
+from django.shortcuts import get_object_or_404
+from rest_framework import generics, permissions, viewsets
 from rest_framework.response import Response
 from knox.models import AuthToken
-from .serializers import UserSerializer, RegisterSerializer, LoginSerializer
+from .serializers import (
+  UserSerializer, RegisterSerializer, 
+  LoginSerializer)
 
 # Register API
 class RegisterAPI(generics.GenericAPIView):
@@ -39,3 +43,17 @@ class UserAPI(generics.RetrieveAPIView):
 
   def get_object(self):
     return self.request.user
+
+# Users ViewSet
+class UserViewSet(viewsets.ModelViewSet):
+    def list(self, request):
+        queryset = User.objects.all()
+        serializer = UserSerializer(queryset, many=True)
+        return Response(serializer.data)
+
+    def retrieve(self, request, pk=None):
+        queryset = User.objects.all()
+        user = get_object_or_404(queryset, username=pk)
+        serializer = UserSerializer(user)
+        serializer.data['songs'] = user.songs.all()
+        return Response(serializer.data)

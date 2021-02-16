@@ -1,6 +1,7 @@
 import React from "react";
-import { Grid, Typography, Card } from '@material-ui/core';
+import { Grid, Typography, Card, Link } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { Link as RouterLink } from 'react-router-dom';
 
 const useStyles = makeStyles({
     card: {
@@ -22,7 +23,10 @@ function IconBarItem(props) {
 
     return (
         <Grid item xs={12} md={3}>
-            <Card className={classes.card}>
+            <Card component={props.link[0] === '/' ? RouterLink : Link} 
+                to={props.link}
+                href={props.link}
+                className={classes.card}>
                 <Grid 
                     container
                     spacing={2}

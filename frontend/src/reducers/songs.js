@@ -1,4 +1,4 @@
-import { GET_SONGS, DELETE_SONG, ADD_SONG, CLEAR_SONGS, GET_PORTFOLIO } from '../actions/types.js';
+import { GET_SONGS, DELETE_SONG, ADD_SONG, CLEAR_SONGS, GET_PORTFOLIO, GET_USER_PROFILE } from '../actions/types.js';
 
 const initialState = {
   songs: [],
@@ -15,6 +15,11 @@ export default function (state = initialState, action) {
       return {
         ...state,
         songs: action.payload
+      };
+    case GET_USER_PROFILE:
+      return {
+        ...state,
+        songs: action.payload.songs
       };
     case DELETE_SONG:
       return {

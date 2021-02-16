@@ -53,13 +53,19 @@ export default function HomePage() {
             >
                 <IconBarItem
                     text="Listen to original music"
-                    icon={RadioIcon} />
+                    icon={RadioIcon} 
+                    link="/songs"
+                    />
                 <IconBarItem
                     text="Make your own music"
-                    icon={MusicNote} />
+                    icon={MusicNote} 
+                    link="https://www.soundtrap.com/"
+                    />
                 <IconBarItem
                     text="Share it with your friends"
-                    icon={ShareIcon} />
+                    icon={ShareIcon} 
+                    link="/portfolio"
+                    />
             </Grid>
         </React.Fragment>
     )

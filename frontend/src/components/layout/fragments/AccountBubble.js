@@ -11,16 +11,15 @@ const styles = {
         fontSize: "2rem",
         color: "grey",
     },
+    item: {
+        padding: "0",
+    },
 }
 
 export default function AccountBubble(props) {
   const auth = props.auth;
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-
-  const handleChange = (event) => {
-    setAuth(event.target.checked);
-  };
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -33,36 +32,36 @@ export default function AccountBubble(props) {
   return (
       <div>
         <IconButton
-        aria-label="account of current user"
-        aria-controls="menu-appbar"
-        aria-haspopup="true"
-        onClick={handleMenu}
-        color="inherit"
+            aria-label="account of current user"
+            aria-controls="menu-appbar"
+            aria-haspopup="true"
+            onClick={handleMenu}
+            color="inherit"
         >
-        <AccountCircle style={styles.icon} />
+            <AccountCircle style={styles.icon} />
         </IconButton>
         <Menu
-        id="menu-appbar"
-        anchorEl={anchorEl}
-        anchorOrigin={{
-            vertical: 'top',
-            horizontal: 'right',
-        }}
-        keepMounted
-        transformOrigin={{
-            vertical: 'top',
-            horizontal: 'right',
-        }}
-        open={open}
-        onClose={handleClose}
+            id="menu-appbar"
+            anchorEl={anchorEl}
+            anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+            }}
+            keepMounted
+            transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+            }}
+            open={open}
+            onClose={handleClose}
         >
         <MenuItem onClick={handleClose}>
             <Button component={RouterLink} to="/portfolio">
-                Portfolio
+                My Portfolio
             </Button>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-            <Button 
+            <Button
                 onClick={props.logout}
                 variant="outlined"
                 color="secondary"

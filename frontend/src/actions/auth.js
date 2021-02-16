@@ -10,7 +10,22 @@ import {
   LOGOUT_SUCCESS,
   REGISTER_SUCCESS,
   REGISTER_FAIL,
+  GET_USERS,
+  GET_USER_PROFILE
 } from './types';
+
+// Get User List
+export const getUsers = () => (dispatch, getState) => {
+  axios
+    .get('/api/auth/users', tokenConfig(getState))
+    .then(res => {
+      dispatch({
+        type: GET_USERS,
+        payload: res.data,
+      });
+    })
+    .catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
+};
 
 // CHECK TOKEN & LOAD USER
 export const loadUser = () => (dispatch, getState) => {
