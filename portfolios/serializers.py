@@ -10,9 +10,14 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class SongSerializer(serializers.ModelSerializer):
-    owner = UserSerializer()
+  owner = UserSerializer()
 
-    class Meta:
-        model = Song
-        fields = '__all__'
+  class Meta:
+    model = Song
+    fields = '__all__'
+
+class PortfolioSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Song
+    fields = '__all__'
         

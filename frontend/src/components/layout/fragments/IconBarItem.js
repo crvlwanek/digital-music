@@ -10,11 +10,15 @@ const useStyles = makeStyles({
         alignItems: "center",
         justify: "center",
         display: "flex",
+        fontColor: "black"
     },
     icon: {
         color: "#75e8e6",
-        fontSize: "4rem"
-    }
+        fontSize: "4rem",
+    },
+    text: {
+        color: "black",
+    },
 })
 
 function IconBarItem(props) {
@@ -37,7 +41,7 @@ function IconBarItem(props) {
                         <Icon className={classes.icon} />
                     </Grid>
                     <Grid item xs={12}>
-                        <Typography>
+                        <Typography className={classes.text}>
                             {props.text}
                         </Typography>
                     </Grid>

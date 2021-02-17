@@ -3,6 +3,31 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getPortfolio, deleteSong } from '../../actions/songs';
 
+import { Paper, Typography, Table, TableContainer, TableHead,
+  TableRow, TableCell, Link, Button, TableBody,
+} from '@material-ui/core';
+
+const styles = {
+  header: {
+    width: "90%",
+  },
+  paper: {
+    paddingTop: "20px",
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  table: {
+    minWidth: "650",
+  },
+  tableHeader: {
+    fontWeight: "600",
+  },
+  submit: {
+    margin: "15px 0 15px"
+  }
+}
+
 export class Portfolio extends Component {
   static propTypes = {
     songs: PropTypes.array.isRequired,
@@ -17,37 +42,41 @@ export class Portfolio extends Component {
   render() {
     return (
       <Fragment>
-        <h2>Songs</h2>
-        <table className="table table-striped">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Url</th>
-              <th>Image</th>
-              <th />
-            </tr>
-          </thead>
-          <tbody>
+      <Paper style={styles.paper}>
+        <Typography style={styles.header} variant="h4">
+          My Songs
+        </Typography>
+      <TableContainer component={Paper}>
+        <Table style={styles.table} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell></TableCell>
+              <TableCell style={styles.tableHeader}>Name</TableCell>
+              <TableCell style={styles.tableHeader}>Song URL</TableCell>
+              <TableCell style={styles.tableHeader}>Image URL</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
             {this.props.songs.map((song) => (
-              <tr key={song.id}>
-                <td>{song.id}</td>
-                <td>{song.name}</td>
-                <td>{song.url}</td>
-                <td>{song.image}</td>
-                <td>
-                  <button
-                    onClick={this.props.deleteSong.bind(this, song.id)}
-                    className="btn btn-danger btn-sm"
-                  >
+              <TableRow key={song.id}>
+                <TableCell>
+                  <Button variant="contained" color="secondary"
+                  onClick={this.props.deleteSong.bind(this, song.id)}>
                     {' '}
                     Delete
-                  </button>
-                </td>
-              </tr>
+                  </Button>
+                </TableCell>
+                <TableCell component="th" scope="row">
+                  {song.name}
+                </TableCell>
+                <TableCell><Link href={song.url}>{song.url}</Link></TableCell>
+                <TableCell><Link href={song.image}>{song.image}</Link></TableCell>
+              </TableRow>
             ))}
-          </tbody>
-        </table>
+          </TableBody>
+        </Table>
+      </TableContainer>
+        </Paper>
       </Fragment>
     );
   }

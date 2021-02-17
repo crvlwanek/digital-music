@@ -60,7 +60,7 @@ export const deleteSong = (id) => (dispatch, getState) => {
 // ADD SONG
 export const addSong = (song) => (dispatch, getState) => {
   axios
-    .post('/api/songs/', song, tokenConfig(getState))
+    .post('/api/portfolio/', song, tokenConfig(getState))
     .then((res) => {
       dispatch(createMessage({ addSong: 'Song Added' }));
       dispatch({
