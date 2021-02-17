@@ -21,7 +21,11 @@ const styles = {
   },
   submit: {
     margin: "15px 0 15px"
-  }
+  },
+  tooltip: {
+    paddingTop: "5px",
+    paddingLeft: "7px"
+  },
 }
 
 
@@ -86,6 +90,11 @@ export class Form extends Component {
                 onChange={this.onChange}
                 value={url}
               />
+            {/* <Grid item xs={12}>
+              <Typography style={styles.tooltip} variant="body2">
+                What's this?
+              </Typography>
+            </Grid> */}
             </Grid>
             <Grid item xs={12}>
               <TextField
@@ -109,6 +118,9 @@ export class Form extends Component {
           >
             Submit
           </Button>
+        <Typography variant="body2">
+          * Required field
+        </Typography>
         </form>
        </Paper>
     );

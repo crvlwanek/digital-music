@@ -52,7 +52,7 @@ export class SongsPreview extends Component{
                 justify="center"
                 spacing={5}
               >
-                {this.props.songs.map(song => (
+                {this.props.songs.reverse().map(song => (
                   <Grid item container xs={12} sm={7} md={4}
                     direction="column"
                     alignItems="center"

@@ -11,7 +11,9 @@ import SongTile from '../layout/fragments/SongTile';
 
 const styles = {
   title: {
-    backgroundColor: "#e8eae6"
+    backgroundColor: "#e8eae6",
+    textAlign: "center",
+    padding: "40px 0 40px",
   },
   holder: {
     backgroundColor: "#e8eae6",
@@ -43,7 +45,7 @@ export class Songs extends Component {
           width="100%" 
           padding="20px 0 40px"
           style={styles.title}>
-          <Typography variant="h3"></Typography>
+          <Typography variant="h3">Newest Songs</Typography>
         </Box>
         <Container padding={60} style={styles.holder}>
           <Grid container
@@ -52,7 +54,7 @@ export class Songs extends Component {
             justify="center"
             spacing={5}
           >
-            {this.props.songs.map(song => (
+            {this.props.songs.reverse().map(song => (
               <Grid item container xs={12} sm={7} md={4}
                 direction="column"
                 alignItems="center"

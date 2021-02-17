@@ -83,8 +83,7 @@ export class UserProfile extends Component {
             justify="center"
             spacing={5}
           >
-          {console.log(this.props.songs)}
-          {this.props.songs.length > 0 ? this.props.songs.map(song => (
+          {this.props.songs.length > 0 ? this.props.songs.reverse().map(song => (
             <Grid item container xs={12} sm={7} md={4}
               direction="column"
               alignItems="center"
