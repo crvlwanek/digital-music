@@ -48,7 +48,7 @@ export class Users extends Component {
                 style={styles.holder}
             >
             {this.props.users.length > 0 ? this.props.users.map(user => (
-                <Grid item xs={4}>
+                <Grid item xs={12} sm={6} md={4}>
                     <UserProfileTile user={user} />
                 </Grid>
             )) : <Typography>No users found</Typography>}

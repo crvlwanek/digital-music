@@ -59,19 +59,23 @@ export class UserProfile extends Component {
           width="100%" 
           style={styles.title}>
           <Grid item xs={2}>
-            <Button component={RouterLink} to="/songs" 
+            <Button component={RouterLink} to="/users" 
               variant="contained" color="primary">
               <ArrowLeftIcon />
-              Songs  
+              <Box display={{ xs: "none", md: "inline" }}>
+                Users
+              </Box>  
             </Button>
           </Grid>
           <Grid item xs={6}>
             <Typography variant="h3">{this.username}'s Portfolio</Typography>
           </Grid>
           <Grid item xs={2}>
-            <Button component={RouterLink} to="/users"
+            <Button component={RouterLink} to="/songs" 
             variant="contained" color="primary">
-              Users
+              <Box display={{ xs: "none", md: "inline" }}>
+                Songs
+              </Box>  
               <ArrowRightIcon />
             </Button>
           </Grid>
