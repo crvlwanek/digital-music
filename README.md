@@ -4,7 +4,6 @@ A fullstack web application using:
 - Django REST Framework
 - Node.js/React.js
 - PostgreSQL (prod) / SQLite3 (dev)
-- [Heroku deployment](https://digital-music.herokuapp.com/#/)
 
 ## Requirements
 
